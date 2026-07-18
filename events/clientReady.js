@@ -19,7 +19,7 @@ const startingStatusArray = [`the "birds" (drones)`, `Selam, everyone!`, `thanks
 const startingStatusArrayType = [ActivityType.Watching, ActivityType.Playing, ActivityType.Listening];
 
 module.exports = {
-	name: 'ready',
+	name: 'clientReady',
 	once: true,
 	async execute(client) {
         const rdmNumber = [Math.floor(Math.random() * startingStatusArray.length)];

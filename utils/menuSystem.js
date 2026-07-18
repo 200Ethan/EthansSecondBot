@@ -74,11 +74,15 @@ module.exports = {
             return interaction.reply(
                 {embeds: [this.pages[this.currentPageNumber].embed], components: this.pages[this.currentPageNumber].rows, fetchReply: true}
             )
+            .then()
+            .catch()
         }
         update(message) {//kinda useless? update: no
             message.update(
                 {embeds: [this.pages[this.currentPageNumber].embed], components: this.pages[this.currentPageNumber].rows}
-            );
+            )
+            .then()
+            .catch();
         }
         async end(interaction) {
             for (let row of this.pages[this.currentPageNumber].rows) {

@@ -48,16 +48,14 @@ module.exports = {
 
             await command.execute(interaction, currentUser, currentGuild);
         } catch (error) {
-            console.log("Something went wrong trying to execute a command!");
-            console.log(error);
+            console.log("Something went wrong trying to execute a command!", error);
             try {
                 await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
             } catch (error) {
                 console.log(
                     "The failure message failed to send!",
-                    "Something has gone catostrophically wrong, or the interaction was already replied to."
-                    )
-                console.log(error)
+                    "Something has gone catostrophically wrong, or the interaction was already replied to.", error
+                );
             }
         }
 	},

@@ -43,7 +43,6 @@ module.exports = {
                 && msg.channel.permissionsFor(clientId).has(PermissionFlagsBits[permissions[pair][0]])
             ) {
                 const [currentGuild] = await savedGuild.findOrCreate({where: {guildId: msg.guild.id}});
-                console.log(currentGuild);
                 if (currentGuild.serverSettings[triggerwords[pair][1]]) {
                     require(path.join(triggerWordsPath, triggerwords[pair][1])).execute(msg, clientId, severity);
                 }

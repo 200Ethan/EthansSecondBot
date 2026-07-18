@@ -123,6 +123,9 @@ module.exports = {
                         categoryName: category
                     },
                 }).then(broadcastChannelItem => {
+                    console.log(userId);
+                    console.log(category);
+                    console.log(broadcastChannelItem);
                     for (const channelId of broadcastChannelItem.listenerIds) {
                         try {
                             client.channels.fetch(channelId)
@@ -138,7 +141,7 @@ module.exports = {
                             console.log("Consider removing channel automatically");
                         }    
                     }
-                })
+                }).catch(err => console.error(err))
                 interaction.reply("Sending your broadcast!");
                 break;
             case 'remove':

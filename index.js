@@ -45,3 +45,17 @@ syncDB.updateAllDB().then(() => {
 	client.login(token);
 })
 // Login to Discord with your client's token
+
+
+// Slopped this up
+// Optional but highly recommended: Catch silent Node errors
+// These often cause bots to go "zombie" without leaving a log
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection:', reason);
+    process.exit(1);
+});
+
+process.on('uncaughtException', (err) => {
+    console.error('Uncaught Exception:', err);
+    process.exit(1);
+});
